@@ -100,9 +100,8 @@ Perform the following steps to build the Docker image:
 For me it looks like this:
 
 ```docker build -t rbagby/node-returnhostname-web .```  
-
 4. Run the following command to see the built docker image
-5. 
+
 ```docker images```
 
 ![docker images](https://raw.githubusercontent.com/robbagby/dcos-primer/master/images/docker-images.jpg) 
@@ -127,7 +126,6 @@ Perform the following steps to push the image we created to Docker Hub:
 2. Login to Docker Hub
 
 ```docker login```
-
 3. Push your image (please replace the yourgitusername token with your git username):
 
 ```docker push <yourgitusername>/node-returnhostname-web```
@@ -209,7 +207,7 @@ Now we can deploy our web app.  Essentially, we want to accomplish 3 things:
 ```
 
 **The following are some important items to notice:**  
-- The docker image is set to: <yourgithubusername>/node-returnhostname-web.  This should match the image name of the image you pushed to Docker Hub earlier.  You can use rbagby/node-returnhostname-web to use my image.  **You need to change this value**  
+- The docker image is set to: \<yourgithubusername>/node-returnhostname-web.  This should match the image name of the image you pushed to Docker Hub earlier.  You can use rbagby/node-returnhostname-web to use my image.  **You need to change this value**  
 - The instances is set to 2.  We will have 2 instances deployed.  
 - The HAPROXY_GROUP in labels is set to "external" this matches the group on our load balancer, so that LB will expose this service  
 - The HAPROXY_0_VHOST should be set to the the dns name of the Public IP Address associated to the public agent pool load balancer.  In my case, it is: bagbyacsmesosagents.westus.cloudapp.azure.com.  You can find it in the Azure portal.  Setting this will route traffic from that setting to our web app.  **You need to change this**  
