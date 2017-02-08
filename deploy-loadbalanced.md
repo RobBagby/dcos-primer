@@ -6,13 +6,13 @@ Here we will deploy a slightly more complex scenario.  We will deploy a (very) s
 
 As you can see from the image above, we have a simple web app that is publicly accessible.  The picture does not depict it, but the web app will be sitting behind a load balancer.
 
-The web app in our case will be a very simple node app that simply exposes the host name.  This will be helpful in illustrating that it is load balanced.  What will make this scenario a bit more complex is that we will not be using a pre-created image.  We will create it, essentially performing the following functions:
+The web app in our case will be a very simple node app that simply exposes the host name.  This will be helpful in illustrating that it is being load balanced.  What will make this scenario a bit more complex is that we will not be using a pre-created docker image.  We will create it.  We will be performing the following functions:
 - Download the code by cloning this repo
 - Create the docker image
 - Run the container locally in docker (optional) 
 - Push the image to docker hub
-- Deploy the container
-- Deploy marathon-lb
+- Deploy the container into our DC/OS cluster
+- Deploy marathon-lb into our DC/OS cluster
 
 
 ## Topology
@@ -25,11 +25,11 @@ Before we move on, though, we should understand why we are using marathon-lb and
 ## The application 
 I should mention that the code you see below borrowed heavily from **Jim Spring**: <https://github.com/jmspring/weave-on-mesos>.  I simply stripped it down to the bare minimum I needed to illustrate a load balanced web app.  Thanks Jim!
 
-Below, I will briefly discuss the code you will need for dockerizing the node app.  You can find the code here: https://github.com/RobBagby/dcos-primer/tree/master/node-returnhostname-web.  It is likely the best option for you to simply clone this repo.
+Below, I will briefly discuss the code you will need for dockerizing the node app.  You can find the code here: https://github.com/RobBagby/dcos-primer/tree/master/node-returnhostname-web.  It is likely the best option for you to simply **clone this repo**.
 #### Web App
 [server.js](https://github.com/RobBagby/dcos-primer/blob/master/node-returnhostname-web/server.js)
  ``` javascript
- 'use strict';
+'use strict';
 
 var os = require('os');
 
@@ -90,7 +90,7 @@ EXPOSE 8080
 CMD [ "npm", "start" ]
 ```
 ## Build the docker Image
-Perform the following steps to build the Docker image:
+Perform the following steps to build the Docker image:  
 1. Open a cmd prompt (assuming you are running on Windows and have Docker for Windows installed)
 2. Change to the [directory](https://github.com/RobBagby/dcos-primer/tree/master/node-returnhostname-web) containing the Dockerfile
 3. Run the following command (please replace the yourgitusername token with your git username):
