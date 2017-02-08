@@ -26,7 +26,7 @@ Perform the following steps to deploy Hello Marathon via the Marathon UI
 ![Create Application](https://raw.githubusercontent.com/robbagby/dcos-primer/master/images/marathon-create-application.jpg)
 4. Click on JSON Mode in the upper right corner and paste in the hello-marathon application definition above.
 ![Create Hello Marathon](https://raw.githubusercontent.com/robbagby/dcos-primer/master/images/marathon-new-hello-marathon.jpg)
-5. Click 'Create Application'
+5. Click 'Create Application'  
 6. You should see the app initially listed as 'Deploying' then 'Running'
 
 ## View the logs
