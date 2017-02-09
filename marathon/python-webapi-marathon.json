@@ -1,0 +1,28 @@
+{
+  "id": "webapi",
+  "instances": 2,
+  "cpus": 0.5,
+  "mem": 32.0,
+  "container": {
+	"type": "DOCKER",
+	"docker": {
+	  "image": "rbagby/python-returnhostname-api",
+	  "network": "BRIDGE",
+	  "portMappings": [
+		{ "containerPort": 5000, "hostPort": 0, "servicePort": 10002 }
+	  ]
+	}
+  },
+  "healthChecks": [{
+	  "protocol": "HTTP",
+	  "path": "/",
+	  "portIndex": 0,
+	  "timeoutSeconds": 10,
+	  "gracePeriodSeconds": 10,
+	  "intervalSeconds": 2,
+	  "maxConsecutiveFailures": 10
+  }],
+  "labels":{
+	"HAPROXY_GROUP":"internal"
+  }
+}

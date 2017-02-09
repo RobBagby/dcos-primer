@@ -105,7 +105,7 @@ For me it looks like this:
 ```docker images```
 
 ![docker images](https://raw.githubusercontent.com/robbagby/dcos-primer/master/images/docker-images.jpg) 
-## Run the docker image locally
+## Run the docker containers locally
 Again, assuming you are running Docker for Windows, you can run the container locally with the following command (please replace the yourgitusername token with your git username):
 
 ```docker run -d -p 8095:8080 --name test <yourgitusername>/node-returnhostname-web```
@@ -165,6 +165,9 @@ The next thing to notice is where the load balancer was deployed.  Remembering b
 ![Nodes tab in DC/OS](https://raw.githubusercontent.com/robbagby/dcos-primer/master/images/dcos-nodes.jpg)
 
 You should notice that the service is, in fact, running on a node in the public agent pool.
+
+How did that happen.  If you look at the 'Advanced Installation' of marathon-lb when deploying from the universe, you will see that the 'role' is set to 'slave_public'.  This means that this package will only be deployed to nodes that have this role.  In our DC/OS cluster, the nodes in the public agent pool have slave_public role.
+
 ## Deploy the image to DC/OS
 Now we can deploy our web app.  Essentially, we want to accomplish 3 things:  
 1. We want to deploy our web app on a node in the **private** agent pool  
@@ -232,7 +235,7 @@ You should see something like the following:
 #### Testing the deployment  
 1. Open a browser to the dns name of the Public IP Address associated to the public agent pool load balancer.  Again, in my case, it is: bagbyacsmesosagents.westus.cloudapp.azure.com.    
 2. Take note of the hostname  
-3. Refresh the web page (depending upon the browser, you may have to wait a short period of time before refreshing)  
+3. Refresh the web page (depending upon the browser, you may have to wait a short period of time before refreshing - chrome works best here)  
 4. Take note of the hostname.  It should be different.  
 
 ![Nodes tab in DC/OS](https://raw.githubusercontent.com/robbagby/dcos-primer/master/images/webapp-1.jpg)

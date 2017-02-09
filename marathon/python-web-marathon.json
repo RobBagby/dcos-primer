@@ -1,0 +1,33 @@
+{
+  "id": "web",
+  "instances": 2,
+  "cpus": 0.5,
+  "mem": 32.0,
+  "env": {
+	"APPURL": "http://marathon-lb-internal.marathon.mesos:10002"
+  },
+  "container": {
+	"type": "DOCKER",
+	"docker": {
+	  "image": "rbagby/python-returnhostname-web",
+	  "network": "BRIDGE",
+	  "portMappings": [
+		{ "containerPort": 5000, "hostPort": 0, "servicePort": 10001 }
+	  ]
+	}
+  },
+  "healthChecks": [{
+	  "protocol": "HTTP",
+	  "path": "/",
+	  "portIndex": 0,
+	  "timeoutSeconds": 10,
+	  "gracePeriodSeconds": 10,
+	  "intervalSeconds": 2,
+	  "maxConsecutiveFailures": 10
+  }],
+  "labels":{
+	"HAPROXY_GROUP":"external",
+	"HAPROXY_0_VHOST":"bagbyacsmesosagents.westus.cloudapp.azure.com",
+	"HAPROXY_0_MODE":"http"
+  }
+}
