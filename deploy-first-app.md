@@ -58,9 +58,9 @@ In order to deploy the Hello Marathon service via the DC/OS CLI, perform the fol
 4. Type the following to login
 
 ```dcos auth login```<br/><br/>
-You should see a 'Login successful!' message
+You should see a 'Login successful!' message<br/><br/>
 5. Type the following to deploy the app
 
 ```dcos marathon app add hello-marathon.json```<br/><br/>
-You should see a message that states: 'Created deployment someguid'<br/>
+You should see a message that states: 'Created deployment someguid'<br/><br/>
 6. Validate that the service is running like above
