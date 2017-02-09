@@ -8,11 +8,9 @@ _(We will use a different application for this section)_
 ## Scenario
 ![No Services Deployed](https://raw.githubusercontent.com/robbagby/dcos-primer/master/images/web-webapi-scenario.jpg) 
 
-As you can see from the image above, we still have a simple web app that is publicly accessible.  This app calls another simple web app that acts as a web api.  The web api is not publicly accessible.  The picture does not depict it, but the web app will be sitting behind a load balancer that exposes the service publicly.  The web api sits behind a private load balancer.
+As you can see from the image above, we still have a simple web app that is publicly accessible.  This app calls another simple web app that acts as a web api.  The web api is not publicly accessible.  The picture does not depict it, but the web app will be sitting behind a load balancer that exposes the service publicly.  The web api sits behind an internal load balancer.
 
-The web app and web api apps will be a very simple php apps that simply exposes the host name.  The web app will call the web api and will expose the hostname of both the api and the web.  This should adequately illustrate that both services are being load balanced.  
-
-We will not be building the docker images in this section.  You are welcome to, if you like, following the guidance set out in the previous section.  The Dockerfiles are included in this repo.  We will be using the images that I have published to my Docker Hub account.  
+The web app and web api apps will be a very simple php apps that simply expose the host name.  The web app will call the web api and will expose the hostname of both the api and the web.  This should adequately illustrate that both services are being load balanced.  
 
 During this section, we will be performing the following functions:
 - Deploy the web container into our DC/OS cluster
@@ -92,8 +90,8 @@ def get_hostname():
     return socket.gethostname();
 
 def get_webapi_hostname():
-    # the web container MUST be run with --link <appName>:helloapp
-    # link_alias = 'helloapp'
+    # the web container MUST be run with --link <appName>:webapi
+    # link_alias = 'webapi'
 
     # Load the environment variables from the .env file.  
     # They will be overwritten if environment vars are set
@@ -190,7 +188,8 @@ Perform the following steps to push the image we created to Docker Hub:
 1. Open a command prompt  
 2. Login to Docker Hub
 
-```docker login```
+```docker login```  
+
 3. Push your web api image (please replace the yourgitusername token with your git username):
 
 ```docker push <yourgitusername>/python-returnhostname-api```
@@ -198,6 +197,7 @@ Perform the following steps to push the image we created to Docker Hub:
 For me it looks like this:
 
 ```docker push rbagby/python-returnhostname-api```
+
 4. Push your web image (please replace the yourgitusername token with your git username):
 
 ```docker push <yourgitusername>/python-returnhostname-web```
