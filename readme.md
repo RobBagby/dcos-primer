@@ -15,8 +15,8 @@ Learn DC/OS on Azure Container Service.  This is intended to be a hands-on guide
 **The following video will show you how to Deploy an ACS Cluster with DC/OS and create an SSH Tunnel from Windows: [Installing ACS with DC/OS](http://www.deveducate.com/Module/1015)
 
 ## Index
-[DC/OC Architecture Overview](https://github.com/RobBagby/dcos-primer/blob/master/dcos-architecture.md)
-[Deployment Options](https://github.com/RobBagby/dcos-primer/blob/master/deployment-options.md)
-[Deploy Your First Appp](https://github.com/RobBagby/dcos-primer/blob/master/deploy-first-app.md)
-[Deploy a Load Balanced Web App](https://github.com/RobBagby/dcos-primer/blob/master/deploy-loadbalanced.md)
+[DC/OC Architecture Overview](https://github.com/RobBagby/dcos-primer/blob/master/dcos-architecture.md)<br/>
+[Deployment Options](https://github.com/RobBagby/dcos-primer/blob/master/deployment-options.md)<br/>
+[Deploy Your First Appp](https://github.com/RobBagby/dcos-primer/blob/master/deploy-first-app.md)<br/>
+[Deploy a Load Balanced Web App](https://github.com/RobBagby/dcos-primer/blob/master/deploy-loadbalanced.md)<br/>
 [Deploy a More Complex Topology](https://github.com/RobBagby/dcos-primer/blob/master/deploy-web-and-private-webapi.md)

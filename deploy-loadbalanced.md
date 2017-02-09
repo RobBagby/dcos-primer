@@ -25,7 +25,7 @@ Before we move on, though, we should understand why we are using marathon-lb and
 ## The application 
 I should mention that the code you see below borrowed heavily from **Jim Spring**: <https://github.com/jmspring/weave-on-mesos>.  I simply stripped it down to the bare minimum I needed to illustrate a load balanced web app.  Thanks Jim!
 
-Below, I will briefly discuss the code you will need for dockerizing the node app.  You can find the code here: https://github.com/RobBagby/dcos-primer/tree/master/node-returnhostname-web.  It is likely the best option for you to simply **clone this repo**.
+Below, I will briefly discuss the code you will need for dockerizing the node app.  You can find the code [here](https://github.com/RobBagby/dcos-primer/tree/master/node-returnhostname-web).  It is likely the best option for you to simply **clone this repo**.
 #### Web App
 [server.js](https://github.com/RobBagby/dcos-primer/blob/master/node-returnhostname-web/server.js)
  ``` javascript
@@ -91,7 +91,7 @@ CMD [ "npm", "start" ]
 ```
 ## Build the docker Image
 Perform the following steps to build the Docker image:  
-1. Open a cmd prompt (assuming you are running on Windows and have Docker for Windows installed)
+1. Open a cmd prompt (assuming you are running on Windows and have Docker for Windows installed)<br/>
 2. Change to the [directory](https://github.com/RobBagby/dcos-primer/tree/master/node-returnhostname-web) containing the Dockerfile  
 3. Run the following command (please replace the yourgitusername token with your git username):
 
@@ -99,7 +99,7 @@ Perform the following steps to build the Docker image:
 
 For me it looks like this:
 
-```docker build -t rbagby/node-returnhostname-web .```  
+```docker build -t rbagby/node-returnhostname-web .```  <br/><br/>
 4. Run the following command to see the built docker image
 
 ```docker images```
@@ -125,7 +125,7 @@ Perform the following steps to push the image we created to Docker Hub:
 1. Open a command prompt  
 2. Login to Docker Hub
 
-```docker login```
+```docker login```<br/><br/>
 3. Push your image (please replace the yourgitusername token with your git username):
 
 ```docker push <yourgitusername>/node-returnhostname-web```

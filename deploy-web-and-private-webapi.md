@@ -136,8 +136,7 @@ python-dotenv
 
 For me it looks like this:
 
-```docker build -t rbagby/python-returnhostname-api .```
-
+```docker build -t rbagby/python-returnhostname-api .```<br/><br/>
 4. Change directory to the python-returnhostname-web directory
 5. Run the following command:  
 
@@ -145,8 +144,7 @@ For me it looks like this:
 
 For me it looks like this:
 
-```docker build -t rbagby/python-returnhostname-web .```
-
+```docker build -t rbagby/python-returnhostname-web .```<br/><br/>
 6. Run the following command to see the built docker images
 
 ```docker images```
@@ -176,7 +174,7 @@ If you go back and review the url specified in the .env file, you will notice th
 - The web app will use the url in the .env file when calling the web api
 - The web container is run with a --link, linking to the webapi container, specifying an alias of webapi
 
-**It is important to note that, while it it convenient for testing, the use of --link should not be used for real applications**
+**It is important to note that, while it it convenient for testing, the use of --link is generally not recommended for real applications**
 
 You can test this solution by opening a browser to <http://localhost:5001>.  You should see something like this:
 ![Running Locally](https://raw.githubusercontent.com/robbagby/dcos-primer/master/images/docker-browser-local-webapi.jpg) 
