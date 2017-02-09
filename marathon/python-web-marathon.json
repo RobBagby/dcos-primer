@@ -27,7 +27,7 @@
   }],
   "labels":{
 	"HAPROXY_GROUP":"external",
-	"HAPROXY_0_VHOST":"bagbyacsmesosagents.westus.cloudapp.azure.com",
+	"HAPROXY_0_VHOST":"<the dns name for your public agent pool>",
 	"HAPROXY_0_MODE":"http"
   }
 }
