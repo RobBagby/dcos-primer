@@ -188,19 +188,19 @@ Perform the following steps to push the image we created to Docker Hub:
 1. Open a command prompt  
 2. Login to Docker Hub
 
-    docker login
+```docker login```
 
 3. Push your web api image (please replace the yourgitusername token with your git username):  
 
-    docker push <yourgitusername>/python-returnhostname-api
+```docker push <yourgitusername>/python-returnhostname-api```
 
 For me it looks like this:
 
-    docker push rbagby/python-returnhostname-api
+```docker push rbagby/python-returnhostname-api```
 
 4. Push your web image (please replace the yourgitusername token with your git username):
 
-    docker push <yourgitusername>/python-returnhostname-web
+```docker push <yourgitusername>/python-returnhostname-web```
 
 For me it looks like this:
 
