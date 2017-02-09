@@ -18,10 +18,10 @@ You should have performed the following steps:
 You can follow the instructions here for steps 1 & 2: [Installing ACS with DCOS](http://www.deveducate.com/Module/1015).  For step 3, the CLI can be installed via the DC/OS UI.
 
 ## Deploy via Marathon UI
-Perform the following steps to deploy Hello Marathon via the Marathon UI
+Perform the following steps to deploy Hello Marathon via the Marathon UI<br/>
 1. Open a browser to <http://localhost:8080/#/services/>.  This is the DC/OS UI.  You should see 'No Services Deployed' like below:
 ![No Services Deployed](https://raw.githubusercontent.com/robbagby/dcos-primer/master/images/dcos-no-services.jpg)
-2. Open a browser to <http://localhost:8080/marathon>.
+2. Open a browser to <http://localhost:8080/marathon><br/>
 3. Click on 'Create Application'
 ![Create Application](https://raw.githubusercontent.com/robbagby/dcos-primer/master/images/marathon-create-application.jpg)
 4. Click on JSON Mode in the upper right corner and paste in the hello-marathon application definition above.
@@ -31,7 +31,7 @@ Perform the following steps to deploy Hello Marathon via the Marathon UI
 
 ## View the logs
 In order to see the output of our Hello Marathon, complete the following steps:
-1. Open a browser to <http://localhost:8080/#/services/>
+1. Open a browser to <http://localhost:8080/#/services/><br/>
 2. Click on the 'hello-marathon' service
 ![Create Hello Marathon](https://raw.githubusercontent.com/robbagby/dcos-primer/master/images/dcos-list-hello-marathon.jpg)
 3. Click on the 'Tasks' tab and the specific task 
@@ -40,8 +40,8 @@ In order to see the output of our Hello Marathon, complete the following steps:
 ![Logs](https://raw.githubusercontent.com/robbagby/dcos-primer/master/images/dcos-hello-marathon-logs.jpg)
 
 ## Destroy the app
-We have deployed the app via the Marathon UI.  Let's destroy it so we can deploy it via the DC/OS CLI.
-1. Open a browser to <http://localhost:8080/#/services/>
+We have deployed the app via the Marathon UI.  Let's destroy it so we can deploy it via the DC/OS CLI.<br/>
+1. Open a browser to <http://localhost:8080/#/services/><br/>
 2. Click on the up arrow next to the hello-world service and choose 'Destroy'
 ![Destroy Service](https://raw.githubusercontent.com/robbagby/dcos-primer/master/images/dcos-destroy-hello.jpg)
 3. Click on the 'Destroy Service' button.
@@ -49,22 +49,18 @@ We have deployed the app via the Marathon UI.  Let's destroy it so we can deploy
 ## Deploy via DC/OS CLI
 _It is likely important to note that you must have opened an SSH tunnel to the master node, as well as installed the DC/OS CLI._
 
-In order to deploy the Hello Marathon service via the DC/OS CLI, perform the following steps:
-1. Either create a new file named 'hello-marathon.json' and paste in the hello-marathon application definition or, if you have cloned this repo, find the location of this file: dcos-primer\marathon\
-2. Open a cmd prompt
+In order to deploy the Hello Marathon service via the DC/OS CLI, perform the following steps:<br/>
+1. Either create a new file named 'hello-marathon.json' and paste in the hello-marathon application definition or, if you have cloned this repo, find the location of this file: dcos-primer\marathon\<br/>
+2. Open a cmd prompt<br/>
 3. Navigate to the directory containing 'hello-marathon.json'.  On my machine it is: C:\Development\Technologies\DCOS\dcos-primer\marathon    
 
-
-    cd C:\Development\Technologies\DCOS\dcos-primer\marathon
-    
+```cd C:\Development\Technologies\DCOS\dcos-primer\marathon```<br/><br/>
 4. Type the following to login
 
-
-    dcos auth login
+```dcos auth login```<br/><br/>
 You should see a 'Login successful!' message
 5. Type the following to deploy the app
 
-
-    dcos marathon app add hello-marathon.json
+```dcos marathon app add hello-marathon.json```<br/><br/>
 You should see a message that states: 'Created deployment someguid'
 6. Validate that the service is running like above
