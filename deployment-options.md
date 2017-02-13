@@ -3,7 +3,8 @@ You have a multitude of options when it comes to deploying services to a DC/OS C
 - The DC/OS Universe
 - The Marathon UI
 - The DC/OS CLI
-- The Marathon REST API<br/>
+- The Marathon REST API
+
 ## DC/OS Universe
 The DC/OS universe is intended to be an app store experience for deploying open source and partner offerings into your cluster.  Remember that the UI is only exposed via a local HTTP endpoint and requires you to open an SSH Tunnel.  For more information review [dcos architecture](https://github.com/RobBagby/dcos-primer/blob/master/dcos-architecture.md).
 
